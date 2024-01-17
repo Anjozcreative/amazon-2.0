@@ -32,7 +32,7 @@ function Header() {
                         <p>Hello Adewale Anjola</p>
                         <p className="downPTag">Account & Lists</p>
                     </div>
-                    <div className="link">
+                    <div className="link hidden md:block">
                         <p>Returns</p>
                         <p className="downPTag">& Orders</p>
                     </div>
