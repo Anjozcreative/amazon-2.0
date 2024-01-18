@@ -4,9 +4,13 @@ import {
     ShoppingCartIcon,
     Bars3Icon
 } from '@heroicons/react/24/solid';
+import { signIn, signOut} from "next-auth/react";
+import { auth } from "@/auth";
 
+async function Header() {
 
-function Header() {
+    const session = await auth();
+
     return (
         <header>
             {/*the top header*/}
@@ -28,17 +32,19 @@ function Header() {
                 </div>
                 {/**right hand side of the top header */}
                 <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
-                    <div className="link">
-                        <p>Hello Adewale Anjola</p>
+
+                    <div onClick={!session ? signIn : signOut} className="link">
+                        <p className="hover:underline">{session ? `Hello ${session?.user.name}` : 'Sign In'}</p>
                         <p className="downPTag">Account & Lists</p>
                     </div>
+
                     <div className="link hidden md:block">
-                        <p>Returns</p>
+                        <p className='hover:underline'>Returns</p>
                         <p className="downPTag">& Orders</p>
                     </div>
                     <div className="relative flex items-center link">
                         <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center items-center rounded-full text-black font-bold">0</span>
-                        <ShoppingCartIcon className="h-12"/>
+                        <ShoppingCartIcon className="md:h-12 h-8" />
                         <p className="hidden md:flex mt-2 downPTag">Basket</p>
                     </div>
                 </div>
