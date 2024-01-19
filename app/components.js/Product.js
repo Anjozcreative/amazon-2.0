@@ -1,13 +1,16 @@
-'use client'
+ 'use client'
 import { StarIcon } from "@heroicons/react/24/solid";
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import { addToBasket } from "../basketSlice";
+import { useDispatch } from "react-redux";
 
 const max_rating = 5;
 const min_rating = 1;
 
-function Product({ id, title, price, description, category, image }) {
+const Product = ({ id, title, price, description, category, image }) => {
 
+    const dispatch = useDispatch();
     const [rating, setRating] = useState(5);
     const [isPrimeEnabled, setIsPrimeEnabled] = useState(5);
 
@@ -18,7 +21,18 @@ function Product({ id, title, price, description, category, image }) {
             min_rating
         );
         setIsPrimeEnabled(Math.random() < 0.5);
+
     }, []);
+
+
+    const addItemToBasket = () => {
+        const product ={
+            id, title, price, description, category, image
+        }
+
+        dispatch(addToBasket(product))
+    }
+
 
 
     return (
@@ -52,9 +66,9 @@ function Product({ id, title, price, description, category, image }) {
                 </div>
             )}
 
-            <button className="mt-auto button">Add to Basket</button>
+            <button onClick={addItemToBasket} className="mt-auto button">Add to Basket</button>
         </div>
     )
 }
 
-export default Product
+export default Product;

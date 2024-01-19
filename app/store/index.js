@@ -1,8 +1,10 @@
+'use client'
 import { configureStore } from '@reduxjs/toolkit'
-import productReducer from './slices/productSlice'
+import basketReducer from '@/app/basketSlice'
 
+//global store setup
 export const store =  configureStore({
   reducer: {
-    products: productReducer,
-  }
+     basket: basketReducer,
+  },
 })
