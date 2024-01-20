@@ -27,7 +27,14 @@ const Product = ({ id, title, price, description, category, image }) => {
 
     const addItemToBasket = () => {
         const product = {
-            id, title, price, description, category, image
+            id,
+            title,
+            price,
+            description,
+            category,
+            image,
+            isPrimeEnabled,
+            rating
         }
 
         dispatch(addToBasket(product))
