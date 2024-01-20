@@ -6,7 +6,6 @@ export default async function Home() {
   const products = await getData()
 
   return (
-    <reduxProvider>
       <div className='bg-gray-100'>
         <main className='max-w-screen-2xl mx-auto'>
           {/**this is the Banner */}
@@ -15,7 +14,6 @@ export default async function Home() {
           <ProductFeed products={products} />
         </main>
       </div>
-    </reduxProvider>
   )
 }
 

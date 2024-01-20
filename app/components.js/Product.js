@@ -1,4 +1,4 @@
- 'use client'
+'use client'
 import { StarIcon } from "@heroicons/react/24/solid";
 import Image from "next/image"
 import { useEffect, useState } from "react"
@@ -10,7 +10,7 @@ const min_rating = 1;
 
 const Product = ({ id, title, price, description, category, image }) => {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
     const [rating, setRating] = useState(5);
     const [isPrimeEnabled, setIsPrimeEnabled] = useState(5);
 
@@ -26,7 +26,7 @@ const Product = ({ id, title, price, description, category, image }) => {
 
 
     const addItemToBasket = () => {
-        const product ={
+        const product = {
             id, title, price, description, category, image
         }
 

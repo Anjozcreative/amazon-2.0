@@ -3,6 +3,7 @@ import './globals.css'
 import { SessionProvider } from './components.js/SessionProvider'
 import { auth } from '@/auth'
 import Header from './components.js/Header'
+import Provider from './components.js/providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,14 +17,16 @@ export default async function RootLayout({ children }) {
   const session = await auth();
 
   return (
-      <html lang="en">
-        <body className={inter.className}>
+    <html lang="en">
+      <body className={inter.className}>
+        <Provider>
           <SessionProvider>
             {/**this is the header of the page */}
             <Header />
             {children}
           </SessionProvider>
-        </body>
-      </html>
+        </Provider>
+      </body>
+    </html>
   )
 }

@@ -8,11 +8,12 @@ import {
 import { signIn, signOut } from "next-auth/react";
 import { auth } from "@/auth";
 import Link from "next/link";
+import Span from "./Span";
+
 
 async function Header() {
 
     const session = await auth();
-
 
     return (
         <header>
@@ -49,7 +50,7 @@ async function Header() {
                     </div>
                     <Link href={'/checkout'}>
                         <div className="relative flex items-center link">
-                            <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center items-center rounded-full text-black font-bold">{0}</span>
+                            <Span />
                             <ShoppingCartIcon className="md:h-12 h-8" />
                             <p className="hidden md:flex mt-2 downPTag">Basket</p>
                         </div>

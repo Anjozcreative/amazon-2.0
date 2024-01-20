@@ -1,7 +1,7 @@
 'use client'
 import { SessionProvider as Provider } from "next-auth/react";
 
-export async function SessionProvider({ children }) {
+export function SessionProvider({ children }) {
 
     return (
         <Provider>
